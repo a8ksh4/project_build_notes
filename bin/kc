@@ -1,0 +1,27 @@
+#!/bin/bash
+
+if ! mount | grep sda1; then
+	sudo mount /dev/sda1 /mnt
+fi
+
+if [[ "${1}" == "s" ]]; then
+	screen /dev/ttyACM0
+else
+	D=$(date +%S)
+	BAK=/home/pi/code.py.$D
+	SRC=/mnt/code.py
+	NEW=/home/pi/code.py.new
+	sudo cp $SRC $BAK
+	sudo cp $SRC $NEW
+	while true; do
+		sudo vi $NEW
+		sudo cp $NEW $SRC
+		echo Press y enter, wait to retry:
+		read -t 15 ans
+		if [[ "$ans" == y ]]; then
+			break
+		fi
+		sudo cp $BAK $SRC
+	done
+fi
+
