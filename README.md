@@ -9,8 +9,13 @@ A few supporting software projects:
 
 # Thumb Term
 
-# Boopbarry (beepberry knockoff)
+* https://hackaday.io/project/191737-thumb-term
 
+# Boopbarry (beepberry knockoff)
+This was a fun little build while waiting for the release of the Beepberry (aka Beepy) 
+intended to be a barebones simple build.  It utilized a 2.7" sharp memory display, and 
+later a JDI 3-bit color display, a Pi Zero, un-boosted 18650 cell for power, and 
+chording keyboard with a Pi Pico also monitoring battery voltage.
 
 # Chonky Pocket
 https://github.com/a8ksh4/chonky-pocket
