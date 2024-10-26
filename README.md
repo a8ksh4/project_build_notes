@@ -1,5 +1,12 @@
 # Build Highlights
 In approximately newest to oldest order.  Each build tries something new.  
+
+# Table of Contents
+1. [Clamshell](#clamshell)
+2. [Thumb Term](#thumb-term)
+3. [Boopbarry](#beepberry-knockoff)
+4. [Chonky Pocket](#chonky-pocket)
+
 A few supporting software projects:
 * https://github.com/a8ksh4/gpio-keyboard
 * https://github.com/a8ksh4/rpi-integrated-battery-module
