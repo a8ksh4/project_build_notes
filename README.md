@@ -7,6 +7,15 @@ A few supporting software projects:
 
 # Clamshell
 
+[Build Writeup](./clamshell/README.md)
+
+A truely palm-sized palmtop utilizing a 4" dsi LCD in the lid, and a Pi 2, Battery, and
+one-handed chording keyboard in the base.  This was intended as a console only build, and I experimented with using gameboy hinges and clean routing for the dispaly ribbon cable.  
+The hinges were meh, but still worked.
+
+<img src="./clamshel/img/0.jpg" alt="Clamshell Photo" width="600"/>
+
+
 # Thumb Term
 
 * https://hackaday.io/project/191737-thumb-term
@@ -36,6 +45,9 @@ power supply, and a 7" touchscreen.
 * https://www.youtube.com/watch?v=x9s_VNrKQGE
 
 # Book, aka Little Goose
+
+[Build Writeup](./book_aka_little_goose/README.md)
+
 This was an entry in the Cyberdeck Cafe Datatex build competition - it's a sort of 
 digital book, probably a nod toward Stephenson's "The Diamond Age".  It features 
 a Pi Zero 2W, 5" touchscreen, one handed chording keyboard, and all day battery life.
