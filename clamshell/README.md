@@ -1,6 +1,8 @@
 # Clamshell
 
 This was designed to be a compact, one-handed, console-only build.  I experimented with low profile hinges and cleanly routing the DSI ribbon cable from the LCD in the lid to the Pi.  The 5" lcd should work great for console apps, and the Pi 2b only draws a couple hundred milli-amps peak, so should have long battery life.
+<img src="./img/4.jpg" alt="Right Side Open" width="400"/><img src="./img/5.jpg" alt="Left Side Open" width="400"/>  
+<img src="./img/1.jpg" alt="Back Closed" width="400"/><img src="./img/2.jpg" alt="Right Side Closed" width="400"/>
 
 ## Parts List
 
@@ -29,11 +31,15 @@ This was designed to be a compact, one-handed, console-only build.  I experiment
 
 
 ## Power 
-<img src="./img/power.jpg" alt="Power Overview" width="600"/>
+<img src="./img/power.jpg" alt="Power Overview" width="600"/>  
 
-This battery, charging, and boost setup works really well for systems using up to about 5V 1A.  The charging board works independently from the power switch and boot board, so charging can happen while the sytstem is in use.  And the pi can be powered on and off without impacting charging.
+USB-C Port -> 1s Charger Board -> BMS (2p 18650 cells) -> Solid State PW Switch -> Boost Converter -> Raspberry Pi  
 
-The pi pico board that handles the keyboard stuff is conneceted directly to the power switch, before the boost converter, so it can monitor battery voltage from its Vin and signal to the pi if voltage is getting low via serial communication, and it can toggle voltage to the momentary power switch to completely shut off the system power if the battery gets too low. 
+<img src="./img/7.jpg" alt="Right Side Open" width="400"/><img src="https://github.com/user-attachments/assets/dc44459b-f85a-4838-97a2-1cb002286da6" alt="Power Wiring" width="400">  
+
+This battery, charging, and boost setup works really well for systems using up to about 5V 1A.  The charging board works independently from the power switch and boot board, so charging can happen while the sytstem is off or in use.  And the pi can be powered on and off without impacting charging.
+
+The pi pico board that handles the keyboard stuff is conneceted directly to the power switch, before the boost converter, so it can monitor battery voltage from its Vin and signal to the pi if voltage is getting low via serial communication over USB, and it can toggle voltage to the momentary power switch to completely shut off the system power if the battery gets too low. 
 
 A tmux toolbar setting reports system battery voltage to the user.
 
@@ -41,15 +47,16 @@ A tmux toolbar setting reports system battery voltage to the user.
 
 ## Case Design and Display
 I tried a couple of new things here.  This was the first time I've routed a DSI ribbon cable through the hinge.  This came out pretty nice....  it would be better perhaps curing the ribbon through a barrel, but it would be getting pretty long and might have impedance probs curled up (?), so having it protected from the back is a nice compromise.
+<img src="./img/9.jpg" alt="Right Side Open" width="400"/><img src="./img/8.jpg" alt="Right Side Open" width="400"/>
 
-I also wanted to try gameboy hinges for this build - The [Penkesu](https://penkesu.computer/) build used them and looked really slick.  It turns out they don't have enough friction for the weight of the 5" LCD, so I failed over to using a nut and screw on one side to add friction.  This worked okay-ish... not as well as I'd like.  I'm giong to look at other options next time around.  Hinges are tough.  I do like the look of this setup!
+I also wanted to try gameboy hinges for this build - The [Penkesu](https://penkesu.computer/) build used them and looked really slick.  It turns out they don't have enough friction for the weight of the 5" LCD, so I failed-over to using a nut and screw on one side to add friction.  This worked okay-ish... not as well as I'd like.  I'm giong to look at other options next time around.  Hinges are tough.  I do like the look of this setup!
 
 The case is designed in On-Shape, so anyone can view and export it from [here](https://cad.onshape.com/documents/c13a11791200e18eb582bd72/w/562a84649ef1f5f89ed34793/e/3f0dbdffc89a92e9e4e1e7a3?renderMode=0&uiState=671fb0d0aa96675cb058cb98).  
 
 My strategy for designing stuff like this has evolved over the last couple of years.  A few notes:
 
 * I try to re-use drawings as much as possible, so if I make a change, I don't need to update multiple things in the design.
-* Everything is modeled in place, as multiple parts, as the unit would be assembled. This lets me see if there is any interference between parts and avoiding surprises during print and assembly.
+* Everything is modeled in place as multiple parts, as the unit would be assembled. This lets me see if there is any interference between parts and avoiding surprises during print and assembly.
 * Hide and unhide parts as needed for visibility whereever sketching and working stuff.  Use the cross-section feature to check for interference with all parts showing.
 
 **Design Process**
@@ -62,16 +69,24 @@ My strategy for designing stuff like this has evolved over the last couple of ye
 * Hinges and display ribbon cable routing are added between the lid and top.
 * Everything possible gets a fillet to smooth out all of the corners and strengthen everything.
 
-This ends up being a LOT of sketches, but everything can be grouped by purpose/component to keep organiked.
+<img src="https://github.com/user-attachments/assets/0c8d272d-5f0b-47b9-87c6-1d9627d3b84e" alt="Perimeter Sketch" width=150 />
+<img src="https://github.com/user-attachments/assets/7c7eebdb-665a-4a9e-aaee-7b10b3322f2a" alt="Case Created" width=150 />
+<img src="https://github.com/user-attachments/assets/de95f082-d4ee-4920-9a1d-c4c35535dbfa" alt="Keeb Plate Added" width=150 />
+<img src="https://github.com/user-attachments/assets/b3ef9a39-056a-40b4-8a60-236a6ee69b2b" alt="Pi Junk Added" width=150 />
+
+This ends up being a LOT of sketches, extrusions, etc, but everything can be grouped by purpose/component to keep organized.  
+<img src="https://github.com/user-attachments/assets/0e3f1251-98e1-4129-a844-8ba575429ccf" alt="Onshape Modification List" width=200/>
 
 Cross section view of the closed unit showing the routing of the display ribbon cable through the back hinge:
 <img src="./img/cross section.jpg" alt="Case Cross Section" width="400"/>
-![image](https://github.com/user-attachments/assets/87bbb751-0bc3-4c8a-9ae7-047ce0a21a64)
 
 **Struggles** - The display has started fritzing after the system boots to console. I haven't root caused it yet to a failing ribbon cable or a software issue.  Also see the notes about the gameboy hinges above.
 
 
 ## Keyboard
+<img src="https://github.com/user-attachments/assets/eccf55c7-f71b-4687-b7be-4656e93447e9" alt="Keyboard Layout" width="400" />
+<img src="https://github.com/user-attachments/assets/517994a5-41af-43f7-b182-866d17631655" alt="Keyboard Wiring" width="400" />
+
 This build uses a one-handed chording keyboard that's kind of a mashup of a couple layouts I like.  The top-left 2x4 keys can be chorded in te [artsey.io](artsey.io) layout, and the thumb keys are hold-tap for escape, enter, tab and layer shifts for number, symbol, and navigation layers sort of similar to the [miryoku](https://github.com/manna-harbour/miryoku) layout.
 
 I wanted to either angle the keyboard to one side or put the display on a swivle so I don't have to look at it from the side with the keyboard oriented properly for my hand. Rotating the keyboard seemed the better approach here.  The staggering and rotation angle are set to maximize ergo and fit the keyboard in next to the battery cells.  
